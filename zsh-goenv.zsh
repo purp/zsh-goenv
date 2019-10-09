@@ -23,9 +23,8 @@ function goenv::upgrade {
 }
 
 function goenv::init {
-    eval "$(goenv init -)"
-    [[ -e "$GOROOT/bin" ]] && export PATH="$GOROOT/bin:$PATH"
-    [[ -e "$GOPATH/bin" ]] && export PATH="$GOPATH/bin:$PATH"
+    [[ -e "$GOPATH/bin" ]] && export PATH="$(go env GOPATH)/bin:$PATH"
+    [[ -e "$GOENV_ROOT/versions/$(goenv global)/bin" ]] && export PATH="$GOENV_ROOT/versions/$(goenv global)/bin:$PATH"
 }
 
 function goenv::post_install {
@@ -52,6 +51,7 @@ function goenv::post_install {
 function goenv::load {
     [[ -e "$HOME/.goenv" ]] && export GOENV_ROOT="$HOME/.goenv"
     [[ -e "$HOME/.goenv/bin" ]] && export PATH="$GOENV_ROOT/bin:$PATH"
+    [[ -e "$HOME/.goenv/shims" ]] && export PATH="$HOME/.goenv/shims:$PATH"
     if (( $+commands[goenv] )); then
         goenv::init
     fi
