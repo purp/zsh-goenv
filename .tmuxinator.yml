@@ -1,5 +1,5 @@
-# ~/.tmuxinator/zsh-g.yml
-name: zsh-g
+# ~/.tmuxinator/zsh-goenv.yml
+name: zsh-goenv
 root: ./
 # Optional tmux socket
 # socket_name: foo

@@ -4,7 +4,7 @@ MAINTAINER Luis Mayta <@slovacus>
 
 ARG stage
 
-LABEL NAME zsh-g-app-$stage
+LABEL NAME zsh-goenv-app-$stage
 
 ENV PACKAGES bash \
         git \

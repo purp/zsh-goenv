@@ -4,7 +4,7 @@ MAINTAINER Luis Mayta <@slovacus>
 
 ARG stage
 ARG version
-LABEL NAME zsh-g-check-$stage
+LABEL NAME zsh-goenv-check-$stage
 
 COPY Pipfile* /usr/src/
 
