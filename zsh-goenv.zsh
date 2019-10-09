@@ -12,9 +12,14 @@ LIGHT_GREEN='\033[1;32m'
 CLEAR='\033[0m'
 
 function goenv::install {
-    echo -e "${CLEAR}${LIGHT_GREEN}Installing G${CLEAR}"
+    echo -e "${CLEAR}${LIGHT_GREEN}Installing Goenv${CLEAR}"
     git clone https://github.com/syndbg/goenv.git ~/.goenv
     goenv::post_install
+}
+
+function goenv::upgrade {
+    echo -e "${CLEAR}${LIGHT_GREEN}upgrade Goenv${CLEAR}"
+    cd "$(goenv root)" && git pull && cd -
 }
 
 function goenv::init {
