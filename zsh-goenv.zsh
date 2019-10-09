@@ -18,16 +18,9 @@ function goenv::install {
 }
 
 function goenv::init {
-    unset -f goenv goenv::init
-    if [[ ! "$PATH" == */.goenv/bin* ]]; then
-        export PATH="$HOME/.goenv/bin:$PATH"
-    fi
     eval "$(goenv init -)"
-}
-
-function goenv {
-    goenv::init
-    goenv "$@"
+    [[ -e "$GOROOT/bin" ]] && export PATH="$GOROOT/bin:$PATH"
+    [[ -e "$GOPATH/bin" ]] && export PATH="$GOPATH/bin:$PATH"
 }
 
 function goenv::post_install {
@@ -54,6 +47,9 @@ function goenv::post_install {
 function goenv::load {
     [[ -e "$HOME/.goenv" ]] && export GOENV_ROOT="$HOME/.goenv"
     [[ -e "$HOME/.goenv/bin" ]] && export PATH="$GOENV_ROOT/bin:$PATH"
+    if (( $+commands[goenv] )); then
+        goenv::init
+    fi
 }
 
 goenv::load
