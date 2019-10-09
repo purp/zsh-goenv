@@ -45,6 +45,7 @@ function goenv::post_install {
         # tools
         go get -u github.com/99designs/aws-vault
         go get -u github.com/minamijoyo/myaws/myaws
+        go get -u github.com/kardianos/govendor
     fi
 }
 
