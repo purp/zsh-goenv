@@ -67,6 +67,6 @@ function goenv::load {
 
 goenv::load
 
-if [ -x "$(command which goenv)" ]; then
+if [ ! -x "$(command which goenv)" ]; then
     goenv::install
 fi
