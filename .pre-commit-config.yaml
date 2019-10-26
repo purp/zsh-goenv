@@ -6,7 +6,7 @@ repos:
         files: ^(?!\.?git-crypt)
     -   id: check-merge-conflict
     -   id: trailing-whitespace
-        language_version: python3
+        language_version: python3.8
         files: ^tf|-|\.(py|tfvars|tf|tfenv|env|yml|yaml|pem|key|mock)$
     -   id: end-of-file-fixer
         files: ^tf|-|\.(py|env|yml|yaml|pem|key|mock)$
@@ -18,18 +18,18 @@ repos:
         args:
         - --autofix
     -   id: check-xml
-        language_version: python3
+        language_version: python3.8
     -   id: check-yaml
     -   id: check-case-conflict
     -   id: check-byte-order-marker
     -   id: check-ast
-        language_version: python3
+        language_version: python3.8
     -   id: debug-statements
     -   id: autopep8-wrapper
         args:
         - -i
         - --ignore=E501,D205
-        language_version: python3
+        language_version: python3.8
     -   id: double-quote-string-fixer
     -   id: check-docstring-first
     -   id: detect-aws-credentials
@@ -98,7 +98,7 @@ repos:
     rev: v2.3.1
     hooks:
     -   id: pylint
-        language_version: python3
+        language_version: python3.8
         exclude: __pycache__|migrations|conf.py|_build|.tox|pootle/static|pootle/translations|pootle/locale|pootle/assets|templates
         args:
         - --rcfile=.pylintrc
@@ -108,6 +108,6 @@ repos:
     rev: 0.1.1
     hooks:
     -   id: mypy
-        language_version: python3
+        language_version: python3.8
         args:
         - --ignore-missing-imports
