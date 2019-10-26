@@ -19,12 +19,19 @@ function goenv::install {
 
 function goenv::upgrade {
     echo -e "${CLEAR}${LIGHT_GREEN}upgrade Goenv${CLEAR}"
-    cd "$(goenv root)" && git pull && cd -
+    local path_goenv
+    path_goenv=$(goenv root)
+	  # shellcheck disable=SC2164
+    cd "${path_goenv}" && git pull && cd -
 }
 
 function goenv::init {
-    [[ -e "$GOPATH/bin" ]] && export PATH="$(go env GOPATH)/bin:$PATH"
-    [[ -e "$GOENV_ROOT/versions/$(goenv global)/bin" ]] && export PATH="$GOENV_ROOT/versions/$(goenv global)/bin:$PATH"
+    local goenv_path
+    local goenv_global
+    goenv_path=$(go env GOPATH)
+    goenv_global=$(goenv global)
+    [[ -e "${GOPATH}/bin" ]] && export PATH="${goenv_path}/bin:${PATH}"
+    [[ -e "${GOENV_ROOT}/versions/${goenv_global}/bin" ]] && export PATH="${GOENV_ROOT}/versions/${goenv_global}/bin:${PATH}"
 }
 
 function goenv::post_install {
