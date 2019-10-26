@@ -29,7 +29,7 @@ function goenv::init {
 
 function goenv::post_install {
     goenv::load
-    if (( $+commands[goenv] )); then
+    if [ -x "$(command which goenv)" ]; then
         echo -e "${CLEAR}${LIGHT_GREEN} Install Go ${CLEAR}"
         goenv install 1.13.1
         goenv global 1.13.1
@@ -53,13 +53,13 @@ function goenv::load {
     [[ -e "$HOME/.goenv" ]] && export GOENV_ROOT="$HOME/.goenv"
     [[ -e "$HOME/.goenv/bin" ]] && export PATH="$GOENV_ROOT/bin:$PATH"
     [[ -e "$HOME/.goenv/shims" ]] && export PATH="$HOME/.goenv/shims:$PATH"
-    if (( $+commands[goenv] )); then
+    if [ -x "$(command which goenv)" ]; then
         goenv::init
     fi
 }
 
 goenv::load
 
-if (( ! $+commands[goenv] )); then
+if [ -x "$(command which goenv)" ]; then
     goenv::install
 fi
