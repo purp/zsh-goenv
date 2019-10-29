@@ -21,8 +21,8 @@ function goenv::upgrade {
     echo -e "${CLEAR}${LIGHT_GREEN}upgrade Goenv${CLEAR}"
     local path_goenv
     path_goenv=$(goenv root)
-	  # shellcheck disable=SC2164
-    cd "${path_goenv}" && git pull && cd -
+    # shellcheck disable=SC2164
+    exec cd "${path_goenv}" && git pull && cd -
 }
 
 function goenv::init {
