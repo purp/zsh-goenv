@@ -69,12 +69,13 @@ function goenv::post_install {
 }
 
 function goenv::load {
-    [[ -e "$HOME/.goenv" ]] && export GOENV_ROOT="$HOME/.goenv"
-    [[ -e "$HOME/.goenv/bin" ]] && export PATH="$GOENV_ROOT/bin:$PATH"
-    [[ -e "$HOME/.goenv/shims" ]] && export PATH="$HOME/.goenv/shims:$PATH"
+    [ -e "$HOME/.goenv" ] && export GOENV_ROOT="$HOME/.goenv"
+    path::append "${GOENV_ROOT}/bin"
+    path::prepend "${HOME}/.goenv/shims"
     if [ -x "$(command which goenv)" ]; then
         goenv::init
     fi
+    path::append "${GOPATH}/bin"
 }
 
 goenv::load
