@@ -62,6 +62,8 @@ function goenv::post_install {
         go get -u github.com/minamijoyo/myaws/myaws
         go get -u github.com/kardianos/govendor
         go get -u github.com/motemen/ghq
+        # validators
+        go get -u github.com/BurntSushi/toml/cmd/tomlv
         message_success "Installed required Go packages"
     fi
 }
