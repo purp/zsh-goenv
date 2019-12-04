@@ -2,27 +2,34 @@
 # -*- coding: utf-8 -*-
 
 #
-# Defines install g for osx or linux.
+# Defines install goenv for osx or linux.
 #
 # Authors:
 #   Luis Mayta <slovacus@gmail.com>
 #
+goenv_package_name=goenv
 
-LIGHT_GREEN='\033[1;32m'
-CLEAR='\033[0m'
+ZSH_GOENV_PATH_ROOT=$(dirname "${0}":A)
+
+# shellcheck source=/dev/null
+source "${ZSH_GOENV_PATH_ROOT}"/src/helpers/messages.zsh
+
+# shellcheck source=/dev/null
+source "${ZSH_GOENV_PATH_ROOT}"/src/helpers/tools.zsh
 
 function goenv::install {
-    echo -e "${CLEAR}${LIGHT_GREEN}Installing Goenv${CLEAR}"
+    message_info "Installing dependences for ${goenv_package_name}"
     git clone https://github.com/syndbg/goenv.git ~/.goenv
-    goenv::post_install
+    message_success "Installed dependences for ${goenv_package_name}"
 }
 
 function goenv::upgrade {
-    echo -e "${CLEAR}${LIGHT_GREEN}upgrade Goenv${CLEAR}"
+    message_info "Upgrade for ${goenv_package_name}"
     local path_goenv
     path_goenv=$(goenv root)
     # shellcheck disable=SC2164
     exec cd "${path_goenv}" && git pull && cd -
+    message_success "Upgraded ${goenv_package_name}"
 }
 
 function goenv::init {
@@ -37,10 +44,11 @@ function goenv::init {
 function goenv::post_install {
     goenv::load
     if [ -x "$(command which goenv)" ]; then
-        echo -e "${CLEAR}${LIGHT_GREEN} Install Go ${CLEAR}"
+        message_info "Install versions of Go"
         goenv install 1.13.1
         goenv global 1.13.1
-        echo -e "${CLEAR}${LIGHT_GREEN}Installing required go packages${CLEAR}"
+        message_success "Installed versions of Go"
+        message_info "Installing required go packages"
         go get -u github.com/alecthomas/gometalinter && gometalinter --install
         go get -u github.com/onsi/ginkgo/ginkgo
         go get -u github.com/onsi/gomega
@@ -54,6 +62,7 @@ function goenv::post_install {
         go get -u github.com/minamijoyo/myaws/myaws
         go get -u github.com/kardianos/govendor
         go get -u github.com/motemen/ghq
+        message_success "Installed required Go packages"
     fi
 }
 
@@ -70,4 +79,5 @@ goenv::load
 
 if [ ! -x "$(command which goenv)" ]; then
     goenv::install
+    goenv::post_install
 fi
