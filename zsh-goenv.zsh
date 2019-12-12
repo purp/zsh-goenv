@@ -9,14 +9,6 @@
 #
 goenv_package_name=goenv
 
-ZSH_GOENV_PATH_ROOT=$(dirname "${0}":A)
-
-# shellcheck source=/dev/null
-source "${ZSH_GOENV_PATH_ROOT}"/src/helpers/messages.zsh
-
-# shellcheck source=/dev/null
-source "${ZSH_GOENV_PATH_ROOT}"/src/helpers/tools.zsh
-
 function goenv::install {
     message_info "Installing dependences for ${goenv_package_name}"
     git clone https://github.com/syndbg/goenv.git ~/.goenv
@@ -70,12 +62,12 @@ function goenv::post_install {
 
 function goenv::load {
     [ -e "$HOME/.goenv" ] && export GOENV_ROOT="$HOME/.goenv"
-    path::append "${GOENV_ROOT}/bin"
-    path::prepend "${HOME}/.goenv/shims"
+    path_append "${GOENV_ROOT}/bin"
+    path_prepend "${HOME}/.goenv/shims"
     if [ -x "$(command which goenv)" ]; then
         goenv::init
     fi
-    path::append "${GOPATH}/bin"
+    path_append "${GOPATH}/bin"
 }
 
 goenv::load
