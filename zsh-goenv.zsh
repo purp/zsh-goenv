@@ -35,7 +35,7 @@ function goenv::init {
 
 function goenv::post_install {
     goenv::load
-    if [ -x "$(command which goenv)" ]; then
+    if type -p goenv > /dev/null; then
         message_info "Install versions of Go"
         goenv install 1.13.1
         goenv global 1.13.1
@@ -64,7 +64,7 @@ function goenv::load {
     [ -e "$HOME/.goenv" ] && export GOENV_ROOT="$HOME/.goenv"
     path_append "${GOENV_ROOT}/bin"
     path_prepend "${HOME}/.goenv/shims"
-    if [ -x "$(command which goenv)" ]; then
+    if type -p goenv > /dev/null; then
         goenv::init
     fi
     path_append "${GOPATH}/bin"
@@ -72,7 +72,7 @@ function goenv::load {
 
 goenv::load
 
-if [ ! -x "$(command which goenv)" ]; then
+if ! type -p goenv > /dev/null; then
     goenv::install
     goenv::post_install
 fi
