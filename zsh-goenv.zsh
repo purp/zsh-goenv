@@ -27,10 +27,13 @@ function goenv::upgrade {
 function goenv::init {
     local goenv_path
     local goenv_global
+    local goroot
     goenv_path=$(go env GOPATH)
     goenv_global=$(goenv global)
-    [[ -e "${GOPATH}/bin" ]] && export PATH="${goenv_path}/bin:${PATH}"
-    [[ -e "${GOENV_ROOT}/versions/${goenv_global}/bin" ]] && export PATH="${GOENV_ROOT}/versions/${goenv_global}/bin:${PATH}"
+    goroot=$(goenv prefix)
+    [ -e "${GOPATH}/bin" ] && export PATH="${goenv_path}/bin:${PATH}"
+    [ -e "${GOENV_ROOT}/versions/${goenv_global}/bin" ] && export PATH="${GOENV_ROOT}/versions/${goenv_global}/bin:${PATH}"
+    export GOROOT="${goroot}"
 }
 
 function goenv::post_install {
@@ -72,6 +75,7 @@ function goenv::load {
     if type -p goenv > /dev/null; then
         goenv::init
     fi
+    path_prepend "${GOROOT}/bin"
     path_append "${GOPATH}/bin"
 }
 
