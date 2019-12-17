@@ -38,26 +38,31 @@ function goenv::post_install {
     if type -p goenv > /dev/null; then
         message_info "Install versions of Go"
         goenv install 1.13.1
-        goenv global 1.13.1
+        goenv install 1.13.4
+        goenv global 1.13.4
         message_success "Installed versions of Go"
-        message_info "Installing required go packages"
-        go get -u github.com/alecthomas/gometalinter && gometalinter --install
-        go get -u github.com/onsi/ginkgo/ginkgo
-        go get -u github.com/onsi/gomega
-        go get -u github.com/nsf/gocode
-        go get -u golang.org/x/tools/cmd/goimports
-        go get -u github.com/pengwynn/flint
-        go get -u github.com/rogpeppe/godef
-        go get -u github.com/dougm/goflymake
-        # tools
-        go get -u github.com/99designs/aws-vault
-        go get -u github.com/minamijoyo/myaws/myaws
-        go get -u github.com/kardianos/govendor
-        go get -u github.com/motemen/ghq
-        # validators
-        go get -u github.com/BurntSushi/toml/cmd/tomlv
-        message_success "Installed required Go packages"
     fi
+}
+
+function goenv::packages {
+    if ! type -p go > /dev/null; then message_error "it's neccesary have go"; fi
+    message_info "Installing required go packages"
+    go get -u github.com/alecthomas/gometalinter && gometalinter --install
+    go get -u github.com/onsi/ginkgo/ginkgo
+    go get -u github.com/onsi/gomega
+    go get -u github.com/nsf/gocode
+    go get -u golang.org/x/tools/cmd/goimports
+    go get -u github.com/pengwynn/flint
+    go get -u github.com/rogpeppe/godef
+    go get -u github.com/dougm/goflymake
+    # tools
+    go get -u github.com/99designs/aws-vault
+    go get -u github.com/minamijoyo/myaws/myaws
+    go get -u github.com/kardianos/govendor
+    go get -u github.com/motemen/ghq
+    # validators
+    go get -u github.com/BurntSushi/toml/cmd/tomlv
+    message_success "Installed required Go packages"
 }
 
 function goenv::load {
