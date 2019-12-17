@@ -4,9 +4,9 @@ zsh-goenv
 |Build Status| |GitHub issues| |GitHub license|
 
 :Version: 0.0.0
-:Web: https://github.com/luismayta/zsh-goenv
-:Download: https://github.com/luismayta/zsh-goenv
-:Source: https://github.com/luismayta/zsh-goenv
+:Web: https://github.com/equipindustry/zsh-goenv
+:Download: https://github.com/equipindustry/zsh-goenv
+:Source: https://github.com/equipindustry/zsh-goenv
 :Keywords: zsh-goenv
 
 .. contents:: Table of Contents:
@@ -39,7 +39,7 @@ plugin by doing the following:
 1. Go to your oh-my-zsh custom plugins directory -
    ``cd ~/.oh-my-zsh/custom/plugins``
 2. Clone the plugin
-   ``bash   git clone https://github.com/luismayta/zsh-goenv``\ bash
+   ``bash   git clone https://github.com/equipindustry/zsh-goenv``\ bash
 3. Edit your ``.zshrc`` and add
    ``plugins=( ... zsh-goenv )`` to your list of
    plugins
@@ -51,10 +51,10 @@ plugin by doing the following:
 If you're using `Antigen <https://github.com/zsh-lovers/antigen>`__,
 install this plugin by doing the following:
 
-1. Add ``antigen bundle luismayta/zsh-goenv`` to your
+1. Add ``antigen bundle equipindustry/zsh-goenv`` to your
    ``.zshrc`` where you're adding your other plugins.
 2. Either open a new terminal to force zsh to load the new plugin, or
-   run ``antigen bundle luismayta/zsh-goenv`` in a
+   run ``antigen bundle equipindustry/zsh-goenv`` in a
    running zsh session.
 3. Enjoy!
 
@@ -68,11 +68,11 @@ install this plugin by doing the following:
 
     .. code-block:: bash
 
-        antibody bundle luismayta/zsh-goenv
+        antibody bundle equipindustry/zsh-goenv
 
     to your ``.zshrc`` where you're adding your other plugins.
 2. Either open a new terminal to force zsh to load the new plugin, or
-   run ``antibody bundle luismayta/zsh-goenv`` in a
+   run ``antibody bundle equipindustry/zsh-goenv`` in a
    running zsh session.
 3. Enjoy!
 
@@ -163,10 +163,10 @@ Made with :coffee: and :pizza: by `luis mayta`_ and `hadenlabs`_.
 .. _`Website`: http://luismayta.github.io
 .. _`PGP`: https://keybase.io/luismayta/pgp_keys.asc
 
-.. |Build Status| image:: https://travis-ci.org/luismayta/zsh-goenv.svg
-   :target: https://travis-ci.org/luismayta/zsh-goenv
-.. |GitHub issues| image:: https://img.shields.io/github/issues/luismayta/zsh-goenv.svg
-   :target: https://github.com/luismayta/zsh-goenv/issues
+.. |Build Status| image:: https://travis-ci.org/equipindustry/zsh-goenv.svg
+   :target: https://travis-ci.org/equipindustry/zsh-goenv
+.. |GitHub issues| image:: https://img.shields.io/github/issues/equipindustry/zsh-goenv.svg
+   :target: https://github.com/equipindustry/zsh-goenv/issues
 .. |GitHub license| image:: https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square
    :target: LICENSE
 
@@ -177,8 +177,8 @@ Made with :coffee: and :pizza: by `luis mayta`_ and `hadenlabs`_.
 .. Footer:
 .. |linkedin| image:: http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png
    :target: http://pe.linkedin.com/in/luismayta
-.. |beacon| image:: https://ga-beacon.appspot.com/UA-65019326-1/github.com/luismayta/zsh-goenv/readme
-   :target: https://github.com/luismayta/zsh-goenv
+.. |beacon| image:: https://ga-beacon.appspot.com/UA-65019326-1/github.com/equipindustry/zsh-goenv/readme
+   :target: https://github.com/equipindustry/zsh-goenv
 .. |made| image:: https://img.shields.io/badge/Made%20with-Zsh-1f425f.svg
    :target: http://www.zsh.org
 
