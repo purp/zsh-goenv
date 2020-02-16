@@ -7,7 +7,16 @@
 # Authors:
 #   Luis Mayta <slovacus@gmail.com>
 #
+
 goenv_package_name=goenv
+
+# shellcheck disable=SC2034  # Unused variables left for readability
+GOENV_ROOT_DIR=$(dirname "$0")
+GOENV_SRC_DIR="${GOENV_ROOT_DIR}"/src
+
+# shellcheck source=/dev/null
+source "${GOENV_SRC_DIR}"/base.zsh
+
 
 function goenv::install {
     message_info "Installing dependences for ${goenv_package_name}"
@@ -48,7 +57,6 @@ function goenv::post_install {
 function goenv::packages {
     if ! type -p go > /dev/null; then message_error "it's neccesary have go"; fi
     message_info "Installing required go packages"
-    go get -u github.com/alecthomas/gometalinter && gometalinter --install
     go get -u github.com/onsi/ginkgo/ginkgo
     go get -u github.com/onsi/gomega
     go get -u github.com/nsf/gocode
