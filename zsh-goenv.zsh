@@ -42,7 +42,7 @@ function goenv::post_install {
         message_info "Install versions of Go"
         goenv install 1.13.1
         goenv install 1.13.4
-        goenv global 1.13.4
+        goenv global 1.13.1
         message_success "Installed versions of Go"
     fi
 }
