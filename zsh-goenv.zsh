@@ -25,9 +25,7 @@ function goenv::upgrade {
 }
 
 function goenv::init {
-    local goenv_path
-    local goenv_global
-    local goroot
+    local goenv_path goenv_global goroot
     goenv_path=$(go env GOPATH)
     goenv_global=$(goenv global)
     goroot=$(goenv prefix)
@@ -69,7 +67,7 @@ function goenv::packages {
 }
 
 function goenv::load {
-    [ -e "$HOME/.goenv" ] && export GOENV_ROOT="$HOME/.goenv"
+    [ -e "${HOME}/.goenv" ] && export GOENV_ROOT="${HOME}/.goenv"
     path_append "${GOENV_ROOT}/bin"
     path_prepend "${HOME}/.goenv/shims"
     if type -p goenv > /dev/null; then
