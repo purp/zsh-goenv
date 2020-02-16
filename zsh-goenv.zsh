@@ -20,7 +20,7 @@ function goenv::upgrade {
     local path_goenv
     path_goenv=$(goenv root)
     # shellcheck disable=SC2164
-    exec cd "${path_goenv}" && git pull && cd -
+    cd "${path_goenv}" && git pull && cd -
     message_success "Upgraded ${goenv_package_name}"
 }
 
