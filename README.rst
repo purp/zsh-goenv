@@ -172,7 +172,7 @@ Made with :coffee: and :pizza: by `luis mayta`_ and `hadenlabs`_.
 
 .. Team:
 .. |Luis Mayta| image:: https://github.com/luismayta.png?size=100
-   :target: https://github.com/luismayta
+    :target: https://github.com/luismayta
 
 .. Footer:
 .. |linkedin| image:: http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png
