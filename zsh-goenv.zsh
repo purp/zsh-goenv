@@ -38,6 +38,7 @@ function goenv::init {
     goenv_path=$(go env GOPATH)
     goenv_global=$(goenv global)
     goroot=$(goenv prefix)
+    eval "$(goenv init -)"
     [ -e "${GOPATH}/bin" ] && export PATH="${goenv_path}/bin:${PATH}"
     [ -e "${GOENV_ROOT}/versions/${goenv_global}/bin" ] && export PATH="${GOENV_ROOT}/versions/${goenv_global}/bin:${PATH}"
     export GOROOT="${goroot}"
@@ -82,9 +83,9 @@ function goenv::load {
     path_prepend "${HOME}/.goenv/shims"
     if type -p goenv > /dev/null; then
         goenv::init
+        path_prepend "${GOROOT}/bin"
+        path_append "${GOPATH}/bin"
     fi
-    path_prepend "${GOROOT}/bin"
-    path_append "${GOPATH}/bin"
 }
 
 goenv::load
