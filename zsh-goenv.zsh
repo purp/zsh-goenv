@@ -9,6 +9,7 @@
 #
 
 goenv_package_name=goenv
+export GOENV_ROOT="${HOME}/.goenv"
 
 # shellcheck disable=SC2034  # Unused variables left for readability
 GOENV_ROOT_DIR=$(dirname "$0")
@@ -78,13 +79,12 @@ function goenv::packages {
 }
 
 function goenv::load {
-    [ -e "${HOME}/.goenv" ] && export GOENV_ROOT="${HOME}/.goenv"
-    path_append "${GOENV_ROOT}/bin"
-    path_prepend "${HOME}/.goenv/shims"
+    [ -e "${GOENV_ROOT}/bin" ] && export PATH="${PATH}:${GOENV_ROOT}/bin"
+    [ -e "${GOENV_ROOT}/shims" ] && export PATH="${GOENV_ROOT}/shims:${PATH}"
     if type -p goenv > /dev/null; then
         goenv::init
-        path_prepend "${GOROOT}/bin"
-        path_append "${GOPATH}/bin"
+        [ -e "${GOROOT}/bin" ] && export PATH="${GOROOT}/bin:${PATH}"
+        [ -e "${GOPATH}/bin" ] && export PATH="${PATH}:${GOPATH}/bin"
     fi
 }
 
