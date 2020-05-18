@@ -47,13 +47,16 @@ function goenv::init {
 
 function goenv::post_install {
     goenv::load
-    if type -p goenv > /dev/null; then
-        message_info "Install versions of Go"
-        goenv install 1.13.1
-        goenv install 1.13.4
-        goenv global 1.13.1
-        message_success "Installed versions of Go"
+    if ! type -p goenv > /dev/null; then
+        message_warning "not found goenv"
+        return
     fi
+    message_info "Install versions of Go"
+    goenv install 1.13.1
+    goenv install 1.13.4
+    goenv install 1.14.2
+    goenv global 1.13.1
+    message_success "Installed versions of Go"
 }
 
 function goenv::packages {
