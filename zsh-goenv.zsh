@@ -14,6 +14,12 @@ export GOENV_ROOT="${HOME}/.goenv"
 # shellcheck disable=SC2034  # Unused variables left for readability
 GOENV_ROOT_DIR=$(dirname "$0")
 GOENV_SRC_DIR="${GOENV_ROOT_DIR}"/src
+GOENV_VERSIONS=(
+    1.13.1
+    1.13.4
+    1.14.2
+)
+GOENV_VERSION_GLOBAL=1.13.1
 
 # shellcheck source=/dev/null
 source "${GOENV_SRC_DIR}"/base.zsh
@@ -52,10 +58,10 @@ function goenv::post_install {
         return
     fi
     message_info "Install versions of Go"
-    goenv install 1.13.1
-    goenv install 1.13.4
-    goenv install 1.14.2
-    goenv global 1.13.1
+    for version in "${GOENV_VERSIONS[@]}"; do
+        goenv install "${version}"
+    done
+    goenv global "${GOENV_VERSION_GLOBAL}"
     message_success "Installed versions of Go"
 }
 
