@@ -24,6 +24,9 @@ GOENV_VERSION_GLOBAL=1.13.1
 # shellcheck source=/dev/null
 source "${GOENV_SRC_DIR}"/base.zsh
 
+# shellcheck source=/dev/null
+source "${GOENV_SRC_DIR}"/packages.zsh
+
 
 function goenv::install {
     message_info "Installing dependences for ${goenv_package_name}"
@@ -65,31 +68,6 @@ function goenv::post_install {
     message_success "Installed versions of Go"
 }
 
-function goenv::packages {
-    if ! type -p go > /dev/null; then
-        message_warning "it's neccesary have go"
-        return
-    fi
-
-    message_info "Installing required go packages"
-    # binary will be $(go env GOPATH)/bin/golangci-lint
-    curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)"/bin v1.23.6
-    go get -u github.com/onsi/ginkgo/ginkgo
-    go get -u github.com/onsi/gomega
-    go get -u github.com/nsf/gocode
-    go get -u golang.org/x/tools/cmd/goimports
-    go get -u github.com/pengwynn/flint
-    go get -u github.com/rogpeppe/godef
-    go get -u github.com/dougm/goflymake
-    # tools
-    go get -u github.com/99designs/aws-vault
-    go get -u github.com/minamijoyo/myaws/myaws
-    go get -u github.com/kardianos/govendor
-    go get -u github.com/motemen/ghq
-    # validators
-    go get -u github.com/BurntSushi/toml/cmd/tomlv
-    message_success "Installed required Go packages"
-}
 
 function goenv::load {
     [ -e "${GOENV_ROOT}/bin" ] && export PATH="${PATH}:${GOENV_ROOT}/bin"
