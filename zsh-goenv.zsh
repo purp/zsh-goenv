@@ -57,7 +57,11 @@ function goenv::post_install {
 }
 
 function goenv::packages {
-    if ! type -p go > /dev/null; then message_error "it's neccesary have go"; fi
+    if ! type -p go > /dev/null; then
+        message_warning "it's neccesary have go"
+        return
+    fi
+
     message_info "Installing required go packages"
     # binary will be $(go env GOPATH)/bin/golangci-lint
     curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)"/bin v1.23.6
