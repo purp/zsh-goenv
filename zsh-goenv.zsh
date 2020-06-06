@@ -15,11 +15,15 @@ export GOENV_ROOT="${HOME}/.goenv"
 GOENV_ROOT_DIR=$(dirname "$0")
 GOENV_SRC_DIR="${GOENV_ROOT_DIR}"/src
 GOENV_VERSIONS=(
+    1.13.0
     1.13.1
+    1.13.2
     1.13.4
+    1.14.0
+    1.14.1
     1.14.2
 )
-GOENV_VERSION_GLOBAL=1.13.1
+GOENV_VERSION_GLOBAL=1.14.2
 
 # shellcheck source=/dev/null
 source "${GOENV_SRC_DIR}"/base.zsh
