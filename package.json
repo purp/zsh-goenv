@@ -1,8 +1,9 @@
 {
   "keywords": [],
   "name": "zsh-goenv",
+  "private": true,
+  "description": "goenv for zsh",
   "version": "0.0.0",
-  "description": "keybase for zsh",
   "repository": "ssh://git@github.com/equipindustry/zsh-goenv.git",
   "author": "Luis Mayta <slovacus@gmail.com>",
   "license": "MIT",
