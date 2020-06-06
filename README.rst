@@ -1,9 +1,9 @@
 zsh-goenv
 =========
 
-|Build Status| |GitHub issues| |GitHub license|
-
 goenv for zsh
+
+|Build Status| |GitHub issues| |GitHub license|
 
 :Version: 0.0.0
 :Web: https://github.com/equipindustry/zsh-goenv
@@ -175,7 +175,7 @@ Made with :coffee: and :pizza: by `Luis Mayta`_ and `equipindustry`_.
 
 .. Team:
 .. |Luis Mayta| image:: https://github.com/luismayta.png?size=100
-    :target: https://github.com/luismayta
+   :target: https://github.com/luismayta
 
 .. Footer:
 .. |linkedin| image:: http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png
