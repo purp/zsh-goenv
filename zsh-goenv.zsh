@@ -13,7 +13,7 @@ export GOENV_ROOT="${HOME}/.goenv"
 
 # shellcheck disable=SC2034  # Unused variables left for readability
 GOENV_ROOT_DIR=$(dirname "$0")
-GOENV_SRC_DIR="${GOENV_ROOT_DIR}"/src
+GOENV_SRC_DIR="${GOENV_ROOT_DIR}"
 GOENV_VERSIONS=(
     1.13.0
     1.13.1
@@ -26,10 +26,10 @@ GOENV_VERSIONS=(
 GOENV_VERSION_GLOBAL=1.14.2
 
 # shellcheck source=/dev/null
-source "${GOENV_SRC_DIR}"/base.zsh
+source "${GOENV_SRC_DIR}"/core/base.zsh
 
 # shellcheck source=/dev/null
-source "${GOENV_SRC_DIR}"/packages.zsh
+source "${GOENV_SRC_DIR}"/core/packages.zsh
 
 
 function goenv::install {
