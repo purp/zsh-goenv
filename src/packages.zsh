@@ -29,7 +29,7 @@ function goenv::packages::install {
 
     message_info "Installing required go packages"
     # binary will be $(go env GOPATH)/bin/golangci-lint
-    curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)"/bin v1.23.6
+    curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)"/bin v1.27.0
 
     for package in "${GOENV_PACKAGES[@]}"; do
         go get -u "${package}"
