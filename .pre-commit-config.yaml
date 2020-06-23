@@ -104,6 +104,21 @@ repos:
       - id: prettier
         args: [--config=prettier.config.js]
         exclude: lib|node_modules
+  - repo: git://github.com/dnephin/pre-commit-golang
+    rev: master
+    hooks:
+      - id: go-fmt
+      - id: go-vet
+      - id: go-lint
+      - id: go-imports
+      - id: go-cyclo
+        args: [-over=15]
+      - id: validate-toml
+      - id: no-go-testing
+      - id: golangci-lint
+      - id: go-critic
+      - id: go-build
+      - id: go-mod-tidy
   - repo: https://github.com/pre-commit/mirrors-eslint
     rev: v7.0.0-alpha.3 # Use the sha / tag you want to point at
     hooks:
