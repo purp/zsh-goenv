@@ -3,11 +3,12 @@
 export GOENV_PACKAGES=(
     github.com/onsi/ginkgo/ginkgo
     github.com/onsi/gomega
-    github.com/nsf/gocode
-    golang.org/x/tools/cmd/goimports
     github.com/pengwynn/flint
     github.com/rogpeppe/godef
     github.com/dougm/goflymake
+    # ide
+    github.com/nsf/gocode
+    golang.org/x/tools/cmd/goimports
     # tools
     github.com/99designs/aws-vault
     github.com/minamijoyo/myaws/myaws
@@ -15,6 +16,9 @@ export GOENV_PACKAGES=(
     github.com/motemen/ghq
     # validators
     github.com/BurntSushi/toml/cmd/tomlv
+    github.com/fzipp/gocyclo
+    github.com/go-critic/go-critic/cmd/gocritic
+    golang.org/x/lint/golint
 )
 
 function goenv::packages::install {
