@@ -80,6 +80,7 @@ function goenv::load {
         goenv::init
         [ -e "${GOROOT}/bin" ] && export PATH="${GOROOT}/bin:${PATH}"
         [ -e "${GOPATH}/bin" ] && export PATH="${PATH}:${GOPATH}/bin"
+        export GO111MODULES=on
     fi
 }
 
