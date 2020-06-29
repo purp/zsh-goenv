@@ -13,6 +13,7 @@ export GOENV_PACKAGES=(
     github.com/99designs/aws-vault
     github.com/minamijoyo/myaws/myaws
     github.com/kardianos/govendor
+    golang.org/x/tools/gopls
     github.com/motemen/ghq
     # validators
     github.com/BurntSushi/toml/cmd/tomlv
