@@ -7,15 +7,20 @@ export GOENV_PACKAGES=(
     github.com/pengwynn/flint
     github.com/dougm/goflymake
     # ide
-    golang.org/x/tools/cmd/gorename
-    github.com/nsf/gocode
+    github.com/mdempsky/gocode
     github.com/rogpeppe/godef
     golang.org/x/tools/cmd/goimports
+    golang.org/x/tools/cmd/godoc
+    golang.org/x/tools/cmd/gorename
+    golang.org/x/tools/gopls@latest
+    golang.org/x/tools/cmd/guru
     github.com/davidrjenni/reftools/cmd/fillstruct
     github.com/josharian/impl
-    golang.org/x/tools/cmd/godoc
-    golang.org/x/tools/gopls@latest
+    github.com/haya14busa/gopkgs/cmd/gopkgs
+    github.com/godoctor/godoctor
+    github.com/zmb3/gogetdoc
     github.com/fatih/gomodifytags
+    github.com/cweill/gotests/...
     # tools
     github.com/99designs/aws-vault
     github.com/minamijoyo/myaws/myaws
@@ -41,7 +46,7 @@ function goenv::packages::install {
     curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)"/bin v1.27.0
 
     for package in "${GOENV_PACKAGES[@]}"; do
-       GO111MODULE=on go get -u "${package}"
+       GO111MODULE=on go get -u -v "${package}"
     done
     message_success "Installed required Go packages"
 }
