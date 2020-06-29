@@ -1,19 +1,25 @@
 #!/usr/bin/env ksh
+
 # -*- coding: utf-8 -*-
 export GOENV_PACKAGES=(
     github.com/onsi/ginkgo/ginkgo
     github.com/onsi/gomega
     github.com/pengwynn/flint
-    github.com/rogpeppe/godef
     github.com/dougm/goflymake
     # ide
+    golang.org/x/tools/cmd/gorename
     github.com/nsf/gocode
+    github.com/rogpeppe/godef
     golang.org/x/tools/cmd/goimports
+    github.com/davidrjenni/reftools/cmd/fillstruct
+    github.com/josharian/impl
+    golang.org/x/tools/cmd/godoc
+    golang.org/x/tools/gopls@latest
+    github.com/fatih/gomodifytags
     # tools
     github.com/99designs/aws-vault
     github.com/minamijoyo/myaws/myaws
     github.com/kardianos/govendor
-    golang.org/x/tools/gopls@latest
     github.com/motemen/ghq
     # debug
     github.com/go-delve/delve/cmd/dlv
