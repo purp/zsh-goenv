@@ -26,7 +26,6 @@ PROJECT_PORT := 3000
 
 PYTHON_VERSION=3.8.0
 NODE_VERSION=12.14.1
-TERRAFORM_VERSION=0.12.25
 PYENV_NAME="${PROJECT}"
 
 # Configuration.
@@ -70,7 +69,7 @@ help:
 setup:
 	@echo "=====> install packages..."
 	pyenv local ${PYTHON_VERSION}
-	yarn
+	yarn install
 	$(PIPENV_INSTALL) --dev --skip-lock
 	$(PIPENV_RUN) pre-commit install
 	$(PIPENV_RUN) pre-commit install -t pre-push
