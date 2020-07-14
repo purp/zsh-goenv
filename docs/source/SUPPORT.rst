@@ -2,7 +2,7 @@
 Support & Contact
 =================
 
-If you have any problems with starting zsh-goenv, please report it on GitHub: https://github.com/luismayta/zsh-goenv
+If you have any problems with starting zsh-goenv, please report it on GitHub: https://github.com/equipindustry/zsh-goenv
 
 
 Who is behind zsh-goenv
