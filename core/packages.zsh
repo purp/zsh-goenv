@@ -33,6 +33,7 @@ export GOENV_PACKAGES=(
     github.com/fzipp/gocyclo
     github.com/go-critic/go-critic/cmd/gocritic
     golang.org/x/lint/golint
+    github.com/preslavmihaylov/todocheck
     # build
     github.com/gobuild/gopack
     github.com/aktau/github-release
