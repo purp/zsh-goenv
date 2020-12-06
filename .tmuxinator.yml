@@ -1,7 +1,7 @@
-# ~/.tmuxinator/zsh-goenv.yml
+# ~/.goenvinator/zsh-goenv.yml
 name: zsh-goenv
 root: ./
-# Optional tmux socket
+# Optional goenv socket
 # socket_name: foo
 
 # Note that the pre and post options have been deprecated and will be replaced by
