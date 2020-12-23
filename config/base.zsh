@@ -46,4 +46,6 @@ export GOENV_PACKAGES=(
     # build
     github.com/gobuild/gopack
     github.com/aktau/github-release
+    # engine template
+    github.com/hairyhenderson/gomplate/v3/cmd/gomplate
 )
